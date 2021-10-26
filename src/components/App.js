@@ -8,6 +8,7 @@ const Main = lazy(() => import('./Main').then(module => ({default:module.Main}))
 const SignIn = lazy(() => import('./SignIn').then(module => ({default:module.SignIn})));
 const AddNote = lazy(() => import('./AddNote').then(module => ({default:module.AddNote})));
 const ReadNote = lazy(() => import('./ReadNote').then(module => ({default:module.ReadNote})));
+const DeleteNote = lazy(() => import('./DeleteNote').then(module => ({default:module.DeleteNote})));
 
 function App() {
 
@@ -27,10 +28,11 @@ function App() {
               <Route exact path="/">
                 {user ? <Main/> : <SignIn/>}
               </Route>
-
-              <Route path="/read/:noteId" component={ReadNote}/>
-
               <Route exact path="/create" component={AddNote}/>
+              <Route path="/read/:noteId" component={ReadNote}/>
+              <Route path="/delete/:noteId" component={DeleteNote}/>
+
+
 
             </Switch>
           </Context.Provider>

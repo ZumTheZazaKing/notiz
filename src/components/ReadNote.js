@@ -24,6 +24,7 @@ export const ReadNote = ({match}) => {
         <button onClick={() => history.push('/')}>Back</button>
         <h1>{readData.title}</h1>
         <h4>{readData.dateTime}</h4>
+        <button onClick={() => history.push(`/delete/${match.params.noteId}`)}>Delete</button>
         <br/>
         <p>{readData.body}</p>
     </div> : <h1>Loading...</h1>)
