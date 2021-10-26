@@ -64,6 +64,48 @@ body{
             background: linear-gradient(110deg, rgb(41, 57, 82) 60%, rgb(26, 37, 53) 60%);
         }
 
+        #Main{
+            padding: 20px;
+            text-align: center;
+            input[type=text]{
+                background: transparent;
+                border: none;
+                outline: none;
+                border-bottom: 4px solid whitesmoke;
+                color: white;
+                font-weight: 500;
+                padding: 10px;
+                width: 30%;
+                font-size: 20px;
+            }
+            button{
+                padding: 5px 10px;
+                font-weight: bold;
+                background-color: rgb(40, 133, 94);
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 20px;
+                color: white;
+            }
+            #notes{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                .noteThumb{
+                    color: white;
+                    padding: 20px;
+                    text-align: left;
+                    margin: 20px;
+                    border-radius: 5px;
+                    background-color: rgba($color: #000000, $alpha: 0.7);
+                    cursor: pointer;
+                }
+            }
+        }
+
     }
 
 }

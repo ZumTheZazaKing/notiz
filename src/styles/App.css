@@ -59,5 +59,46 @@ body .App #SignIn {
   text-align: center;
   background: linear-gradient(110deg, #293952 60%, #1a2535 60%);
 }
+body .App #Main {
+  padding: 20px;
+  text-align: center;
+}
+body .App #Main input[type=text] {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 4px solid whitesmoke;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+  width: 30%;
+  font-size: 20px;
+}
+body .App #Main button {
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: #28855e;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+body .App #Main #notes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+body .App #Main #notes .noteThumb {
+  color: white;
+  padding: 20px;
+  text-align: left;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=App.css.map */

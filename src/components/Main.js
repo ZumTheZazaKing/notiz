@@ -40,8 +40,10 @@ export function Main(){
     }
 
     return (userData.avatar ? <div id="Main">
-        <input type="text"/><br/>
+        <input type="text" placeholder="Search Note"/>
+        <br/><br/>
         <button onClick={() => history.push("/create")}>+ New</button>
+        <br/><br/>
         <div id="notes">
             <Suspense fallback={<h1>Loading...</h1>}>
                 {userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>)}
