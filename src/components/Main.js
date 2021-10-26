@@ -52,5 +52,5 @@ export function Main(){
             </Suspense>
         </div>
         
-    </div> : "Loading...")
+    </div> : <h1>Loading...</h1>)
 }
