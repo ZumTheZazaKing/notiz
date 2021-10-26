@@ -1,9 +1,11 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, lazy, Suspense } from 'react';
 import { doc, onSnapshot, setDoc, collection } from 'firebase/firestore';
 
 import { SignOut } from './SignOut';
 import { db, auth } from '../firebase';
 import { Context } from '../data/context';
+
+const NoteThumb = lazy(() => import('./NoteThumb').then(module => ({default:module.NoteThumb})));
 
 export function Main(){
 
@@ -42,8 +44,12 @@ export function Main(){
             <img src={`${userData.avatar}`} alt=""/>
         </div>
         <br/>
+        <input type="text"/>
+        <button onClick={() => console.log(userData.notes[1].data())}>Log results</button>
         <div id="notes">
-
+            <Suspense fallback={<h1>Loading...</h1>}>
+                {userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>)}
+            </Suspense>
         </div>
         
     </div> : "Loading...")
