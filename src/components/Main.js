@@ -45,10 +45,10 @@ export function Main(){
         <button onClick={() => history.push("/create")}>+ New</button>
         <br/><br/>
         <div id="notes">
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<div className="loading"><h1>Loading...</h1></div>}>
                 {userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>)}
             </Suspense>
         </div>
         
-    </div> : <h1>Loading...</h1>)
+    </div> : <div className="loading"><h1>Loading...</h1></div>)
 }

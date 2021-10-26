@@ -18,9 +18,12 @@ export const DeleteNote = ({match}) => {
         history.push("/")
     }
 
-    return (<div className="deleteNote">
+    return (<div id="DeleteNote">
         <h3>Are you sure you want to delete this note?</h3>
-        <button onClick={() => history.push(`/read/${match.params.noteId}`)}>No</button>
-        <button onClick={() => deleteNote()}>Yes</button>
+        <br/>
+        <main>
+            <button className="yes" onClick={() => history.push(`/read/${match.params.noteId}`)}>No</button>
+            <button className="no" onClick={() => deleteNote()}>Yes</button>
+        </main>
     </div>)
 }

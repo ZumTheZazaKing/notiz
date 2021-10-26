@@ -30,15 +30,15 @@ export function AddNote(){
 
     return (<div id="AddNote">
         <button onClick={() => history.push("/")}>Back</button>
-        <h1>Add Note</h1>
-        <br/>
         <form onSubmit={(e) => createNote(e)}>
+            <h1>Add Note</h1>
+            <br/>
             <label>Title</label>
             <br/>
-            <input type="text" value={addData.title} onChange={e => setAddData({...addData, title:e.target.value})} max={30} required/>
-            <br/>
-            <textarea rows={5} value={addData.body} onChange={e => setAddData({...addData, body:e.target.value})} required></textarea>
-            <br/>
+            <input placeholder="How To Milk A Cow.." type="text" value={addData.title} onChange={e => setAddData({...addData, title:e.target.value})} max={30} required/>
+            <br/><br/>
+            <textarea placeholder="Be a farmer" rows={20} value={addData.body} onChange={e => setAddData({...addData, body:e.target.value})} required></textarea>
+            <br/><br/>
             <input type="submit" value="Create"/>
         </form>
     </div>)

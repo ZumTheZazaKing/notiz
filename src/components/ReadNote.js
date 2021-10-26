@@ -21,13 +21,18 @@ export const ReadNote = ({match}) => {
         })
     },[])
 
-    return (readData ? <div className="readNote">
+    return (readData ? <div id="ReadNote">
         <button onClick={() => history.push('/')}>Back</button>
-        <h1>{readData.title}</h1>
-        <h4>{readData.dateTime}</h4>
-        <button onClick={() => history.push(`/delete/${match.params.noteId}`)}>Delete</button>
-        <button onClick={() => history.push(`/update/${match.params.noteId}`)}>Update</button>
-        <br/><br/>
-        <p>{readData.body}</p>
+        <div id="body">
+            <header>
+                <h1>{readData.title}</h1>
+                <h4>{readData.dateTime}</h4>
+                <br/>
+                <button className="delete" onClick={() => history.push(`/delete/${match.params.noteId}`)}>Delete</button>
+                <button className="update" onClick={() => history.push(`/update/${match.params.noteId}`)}>Update</button>
+            </header>
+            <br/><br/>
+            <p>{readData.body}</p>
+        </div>
     </div> : <div className="loading"><h1>Loading...</h1></div>)
 }
