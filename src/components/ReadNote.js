@@ -13,11 +13,12 @@ export const ReadNote = ({match}) => {
 
     useEffect(() => {
         if(!user)history.push('/');
+    })
 
+    useEffect(() => {
         onSnapshot(doc(db,"notes",match.params.noteId), snapshot => {
             setReadData(snapshot.data())
         })
-
     },[])
 
     return (readData ? <div className="readNote">
@@ -28,5 +29,5 @@ export const ReadNote = ({match}) => {
         <button onClick={() => history.push(`/update/${match.params.noteId}`)}>Update</button>
         <br/><br/>
         <p>{readData.body}</p>
-    </div> : <h1>Loading...</h1>)
+    </div> : <div className="loading"><h1>Loading...</h1></div>)
 }

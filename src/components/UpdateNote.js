@@ -13,7 +13,9 @@ export const UpdateNote = ({match}) => {
 
     useEffect(() => {
         if(!user)history.push("/");
+    })
 
+    useEffect(() => {
         onSnapshot(doc(db,"notes",match.params.noteId), snapshot => {
             setUpdateData(snapshot.data())
         })
@@ -38,5 +40,5 @@ export const UpdateNote = ({match}) => {
             <br/>
             <input type="submit" value="Update"/>
         </form>
-    </div> : <h1>Loading...</h1>)
+    </div> : <div className="loading"><h1>Loading...</h1></div>)
 }

@@ -10,6 +10,7 @@ const AddNote = lazy(() => import('./AddNote').then(module => ({default:module.A
 const ReadNote = lazy(() => import('./ReadNote').then(module => ({default:module.ReadNote})));
 const DeleteNote = lazy(() => import('./DeleteNote').then(module => ({default:module.DeleteNote})));
 const UpdateNote = lazy(() => import('./UpdateNote').then(module => ({default:module.UpdateNote})));
+const Topbar = lazy(() => import('./TopBar').then(module => ({default:module.Topbar})));
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Context.Provider value={{
             userData, setUserData, user
           }}>
+            <Topbar/>
             <Switch>
 
               <Route exact path="/">

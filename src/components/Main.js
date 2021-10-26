@@ -2,7 +2,6 @@ import { useEffect, useContext, lazy, Suspense } from 'react';
 import { doc, onSnapshot, setDoc, collection } from 'firebase/firestore';
 import { useHistory } from 'react-router-dom';
 
-import { SignOut } from './SignOut';
 import { db, auth } from '../firebase';
 import { Context } from '../data/context';
 
@@ -41,11 +40,6 @@ export function Main(){
     }
 
     return (userData.avatar ? <div id="Main">
-        <div className="topBar">
-            <SignOut/>
-            <img src={`${userData.avatar}`} alt=""/>
-        </div>
-        <br/>
         <input type="text"/><br/>
         <button onClick={() => history.push("/create")}>+ New</button>
         <div id="notes">

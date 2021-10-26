@@ -11,7 +11,7 @@ export const DeleteNote = ({match}) => {
 
     useEffect(() => {
         if(!user)history.push("/")
-    },[])
+    })
 
     const deleteNote = async () => {
         await deleteDoc(doc(db,"notes",match.params.noteId))
