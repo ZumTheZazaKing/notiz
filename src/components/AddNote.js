@@ -31,6 +31,7 @@ export function AddNote(){
     return (<div id="AddNote">
         <button onClick={() => history.push("/")}>Back</button>
         <h1>Add Note</h1>
+        <br/>
         <form onSubmit={(e) => createNote(e)}>
             <label>Title</label>
             <br/>

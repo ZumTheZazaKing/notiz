@@ -20,7 +20,7 @@ function App() {
   return (
     <HashRouter>
       <div className="App">
-        <Suspense fallback={<div className="loading">Loading...</div>}>
+        <Suspense fallback={<div className="loading"><h1>Loading...</h1></div>}>
           <Context.Provider value={{
             userData, setUserData, user
           }}>
