@@ -17,13 +17,15 @@ export function AddNote(){
 
     const createNote = async e => {
         e.preventDefault();
-        history.push("/")
+        const currentTime = new Date().toLocaleString()
         await addDoc(collection(db,"notes"),{
             title:addData.title,
             body:addData.body,
             author:auth.currentUser.uid,
-            createdAt:serverTimestamp()
+            createdAt:serverTimestamp(),
+            dateTime:currentTime
         })
+        history.push("/")
     }
 
     return (<div id="AddNote">
