@@ -9,6 +9,7 @@ const SignIn = lazy(() => import('./SignIn').then(module => ({default:module.Sig
 const AddNote = lazy(() => import('./AddNote').then(module => ({default:module.AddNote})));
 const ReadNote = lazy(() => import('./ReadNote').then(module => ({default:module.ReadNote})));
 const DeleteNote = lazy(() => import('./DeleteNote').then(module => ({default:module.DeleteNote})));
+const UpdateNote = lazy(() => import('./UpdateNote').then(module => ({default:module.UpdateNote})));
 
 function App() {
 
@@ -31,8 +32,7 @@ function App() {
               <Route exact path="/create" component={AddNote}/>
               <Route path="/read/:noteId" component={ReadNote}/>
               <Route path="/delete/:noteId" component={DeleteNote}/>
-
-
+              <Route path="/update/:noteId" component={UpdateNote}/>
 
             </Switch>
           </Context.Provider>
