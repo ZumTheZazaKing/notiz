@@ -2,9 +2,11 @@ import { lazy, Suspense, useState } from 'react';
 import { auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Context } from '../data/context';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 const Main = lazy(() => import('./Main').then(module => ({default:module.Main})));
 const SignIn = lazy(() => import('./SignIn').then(module => ({default:module.SignIn})));
+const AddNote = lazy(() => import('./AddNote').then(module => ({default:module.AddNote})));
 
 function App() {
 
@@ -13,17 +15,25 @@ function App() {
   const [userData, setUserData] = useState({});
 
   return (
-    <div className="App">
-      <Suspense fallback={<div className="loading">Loading...</div>}>
-        <Context.Provider value={{
-          userData, setUserData
-        }}>
+    <HashRouter>
+      <div className="App">
+        <Suspense fallback={<div className="loading">Loading...</div>}>
+          <Context.Provider value={{
+            userData, setUserData, user
+          }}>
+            <Switch>
 
-          {user ? <Main/> : <SignIn/>}
+              <Route exact path="/">
+                {user ? <Main/> : <SignIn/>}
+              </Route>
 
-        </Context.Provider>
-      </Suspense>
-    </div>
+              <Route exact path="/create" component={AddNote}/>
+
+            </Switch>
+          </Context.Provider>
+        </Suspense>
+      </div>
+    </HashRouter>
   );
 }
 

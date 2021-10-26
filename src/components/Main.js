@@ -1,5 +1,6 @@
 import { useEffect, useContext, lazy, Suspense } from 'react';
 import { doc, onSnapshot, setDoc, collection } from 'firebase/firestore';
+import { useHistory } from 'react-router-dom';
 
 import { SignOut } from './SignOut';
 import { db, auth } from '../firebase';
@@ -9,6 +10,7 @@ const NoteThumb = lazy(() => import('./NoteThumb').then(module => ({default:modu
 
 export function Main(){
 
+    const history = useHistory();
     let { userData, setUserData } = useContext(Context);
 
     useEffect(
@@ -38,14 +40,14 @@ export function Main(){
         await setDoc(userDocRef, userPayload);
     }
 
-    return (userData ? <div id="Main">
+    return (userData.avatar ? <div id="Main">
         <div className="topBar">
             <SignOut/>
             <img src={`${userData.avatar}`} alt=""/>
         </div>
         <br/>
-        <input type="text"/>
-        <button onClick={() => console.log(userData.notes[1].data())}>Log results</button>
+        <input type="text"/><br/>
+        <button onClick={() => history.push("/create")}>+ New</button>
         <div id="notes">
             <Suspense fallback={<h1>Loading...</h1>}>
                 {userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>)}
