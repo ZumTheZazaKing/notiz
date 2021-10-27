@@ -41,13 +41,12 @@ export function Main(){
     }
 
     return (userData.avatar ? <div id="Main">
-        <input type="text" placeholder="Search Note"/>
-        <br/><br/>
+        <br/>
         <button onClick={() => history.push("/create")}>+ New</button>
         <br/><br/>
         <div id="notes">
             <Suspense fallback={<div className="loading"><h1>Loading...</h1></div>}>
-                {userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>)}
+                {userData.notes ? userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>) : <h2>Wow. So empty</h2>}
             </Suspense>
         </div>
         

@@ -16,7 +16,7 @@ export function Topbar(){
         <h1>Notiz</h1>
         <div className="profileInfo">
             {user ? <SignOut/> : <button onClick={() => signInWithGoogle()}>Sign In</button>}
-            <img src={user ? auth.currentUser.photoURL : "https://via.placeholder.com/500x500.jpg?text=G"} alt="profilePic"/>
+            <img src={user ? auth.currentUser.photoURL : "https://via.placeholder.com/500x500.jpg?text=G"} alt="pp"/>
         </div>
     </div>)
 }
