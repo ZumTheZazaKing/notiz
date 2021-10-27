@@ -6,6 +6,26 @@
   font-family: "Quicksand", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B3AFB3;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #969696;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0F0F0;
+  border-radius: 0px;
+  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+}
+
 body {
   background-color: #293952;
 }
@@ -100,10 +120,10 @@ body .App #Main #notes .noteThumb {
   background-color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
-body .App #AddNote {
+body .App #AddNote, body .App #UpdateNote {
   padding-bottom: 50px;
 }
-body .App #AddNote button {
+body .App #AddNote button, body .App #UpdateNote button {
   background: transparent;
   border: none;
   outline: none;
@@ -114,34 +134,34 @@ body .App #AddNote button {
   font-size: 20px;
   cursor: pointer;
 }
-body .App #AddNote form {
+body .App #AddNote form, body .App #UpdateNote form {
   width: 60%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   color: white;
 }
-body .App #AddNote label {
+body .App #AddNote label, body .App #UpdateNote label {
   font-size: 20px;
   font-weight: bold;
 }
-body .App #AddNote input[type=text], body .App #AddNote textarea {
+body .App #AddNote input[type=text], body .App #AddNote textarea, body .App #UpdateNote input[type=text], body .App #UpdateNote textarea {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: none;
   outline: none;
 }
-body .App #AddNote input[type=text] {
+body .App #AddNote input[type=text], body .App #UpdateNote input[type=text] {
   font-weight: bold;
   font-size: 20px;
 }
-body .App #AddNote textarea {
-  font-weight: 600;
+body .App #AddNote textarea, body .App #UpdateNote textarea {
+  font-weight: 500;
   font-size: 16px;
   resize: none;
 }
-body .App #AddNote input[type=submit] {
+body .App #AddNote input[type=submit], body .App #UpdateNote input[type=submit] {
   padding: 5px 10px;
   text-transform: uppercase;
   font-weight: bold;
@@ -181,16 +201,23 @@ body .App #ReadNote #body {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
 }
 body .App #ReadNote #body header {
   text-align: center;
   color: white;
 }
-body .App #ReadNote #body p {
+body .App #ReadNote #body textarea {
   padding: 20px 10px;
   background: whitesmoke;
   border-radius: 3px;
   font-weight: 500;
+  resize: none;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  cursor: default;
 }
 body .App #DeleteNote {
   height: 90vh;
@@ -221,13 +248,16 @@ body .App #DeleteNote .yes {
 body .App #DeleteNote .no {
   background-color: crimson;
 }
-
 @media only screen and (max-width: 800px) {
   #Main input[type=text] {
     width: 90% !important;
   }
 
-  #AddNote form {
+  #AddNote form, #UpdateNote form {
+    width: 90% !important;
+  }
+
+  #ReadNote #body {
     width: 90% !important;
   }
 }

@@ -6,6 +6,23 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: #B3AFB3;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #969696;
+}
+::-webkit-scrollbar-track{
+    background: #F0F0F0;
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+}
+
 body{
     background-color: rgb(41, 57, 82);
 
@@ -106,7 +123,7 @@ body{
             }
         }
 
-        #AddNote{
+        #AddNote, #UpdateNote{
             padding-bottom: 50px;
             button{
                 background: transparent;
@@ -142,7 +159,7 @@ body{
                 font-size: 20px;
             }
             textarea{
-                font-weight: 600;
+                font-weight: 500;
                 font-size: 16px;
                 resize: none;
             }
@@ -185,15 +202,22 @@ body{
                 width: 70%;
                 margin-left: auto;
                 margin-right: auto;
+                margin-bottom: 50px;
                 header{
                     text-align: center;
                     color: white;
                 }
-                p{
+                textarea{
                     padding: 20px 10px;
                     background: whitesmoke;
                     border-radius: 3px;
                     font-weight: 500;
+                    resize: none;
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                    cursor: default;
                 }
             }
         }
@@ -224,6 +248,10 @@ body{
             .no{background-color: crimson;}
         }
 
+        #UpdateNote{
+
+        }
+
     }
 
 }
@@ -236,8 +264,14 @@ body{
         }
     }
 
-    #AddNote{
+    #AddNote, #UpdateNote{
         form{
+            width: 90% !important;
+        }
+    }
+
+    #ReadNote{
+        #body{
             width: 90% !important;
         }
     }

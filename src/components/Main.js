@@ -1,5 +1,5 @@
 import { useEffect, useContext, lazy, Suspense } from 'react';
-import { doc, onSnapshot, setDoc, collection } from 'firebase/firestore';
+import { doc, onSnapshot, setDoc, collection, query, orderBy } from 'firebase/firestore';
 import { useHistory } from 'react-router-dom';
 
 import { db, auth } from '../firebase';
@@ -20,7 +20,8 @@ export function Main(){
                     setUserData({...snapshot.data(), id:snapshot.id, notes:[]})
                     return;
                 }
-                onSnapshot(collection(db,"notes"), collectionSnapshot => {
+                const q = query(collection(db,"notes"), orderBy("createdAt","desc"));
+                onSnapshot(q, collectionSnapshot => {
                     setUserData({...snapshot.data(), id:snapshot.id, 
                         notes:[...collectionSnapshot.docs.filter(d => d.data().author === snapshot.id)]
                     });

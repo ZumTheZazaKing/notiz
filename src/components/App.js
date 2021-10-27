@@ -3,6 +3,8 @@ import { auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Context } from '../data/context';
 import { HashRouter, Switch, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Main = lazy(() => import('./Main').then(module => ({default:module.Main})));
 const SignIn = lazy(() => import('./SignIn').then(module => ({default:module.SignIn})));
@@ -37,6 +39,18 @@ function App() {
               <Route path="/update/:noteId" component={UpdateNote}/>
 
             </Switch>
+            <ToastContainer
+              position="bottom-left"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
           </Context.Provider>
         </Suspense>
       </div>

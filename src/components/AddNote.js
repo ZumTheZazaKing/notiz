@@ -3,6 +3,7 @@ import { Context } from "../data/context";
 import { useHistory } from "react-router-dom";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "@firebase/firestore";
+import { toast } from "react-toastify";
 
 export function AddNote(){
 
@@ -25,6 +26,8 @@ export function AddNote(){
             createdAt:serverTimestamp(),
             dateTime:currentTime
         })
+        .then(() => toast.success("Note created"))
+        .catch(() => toast.error(`Something went wrong`))
         history.push("/")
     }
 

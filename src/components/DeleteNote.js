@@ -3,6 +3,7 @@ import { db } from "../firebase";
 import { deleteDoc, doc } from "@firebase/firestore";
 import { useContext, useEffect } from "react";
 import { Context } from "../data/context";
+import { toast } from "react-toastify";
 
 export const DeleteNote = ({match}) => {
 
@@ -15,6 +16,8 @@ export const DeleteNote = ({match}) => {
 
     const deleteNote = async () => {
         await deleteDoc(doc(db,"notes",match.params.noteId))
+        .then(() => toast.success("Note deleted"))
+        .catch(() => toast.error(`Something went wrong`))
         history.push("/")
     }
 
