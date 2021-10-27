@@ -46,7 +46,7 @@ export function Main(){
         <br/><br/>
         <div id="notes">
             <Suspense fallback={<div className="loading"><h1>Loading...</h1></div>}>
-                {userData.notes ? userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>) : <h2>Wow. So empty</h2>}
+                {userData.notes && userData.notes.map((note,i) => <NoteThumb key={i} info={note}/>)}
             </Suspense>
         </div>
         
