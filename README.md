@@ -1,4 +1,3 @@
-![Netlify](https://img.shields.io/netlify/8a18d4ab-3616-4a14-b830-ad125950164d)
 # Notiz
 A simple note-taking app 🙂
 
