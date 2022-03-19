@@ -79,6 +79,18 @@ body{
             color: white;
             text-align: center;
             background: linear-gradient(110deg, rgb(41, 57, 82) 60%, rgb(26, 37, 53) 60%);
+            a{
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 10px;
+                align-items: center;
+                text-decoration: none;
+                display: none;
+                span{
+                    margin-right:10px
+                }
+            }
         }
 
         #Main{
@@ -248,10 +260,6 @@ body{
             .no{background-color: crimson;}
         }
 
-        #UpdateNote{
-
-        }
-
     }
 
 }
@@ -273,6 +281,12 @@ body{
     #ReadNote{
         #body{
             width: 90% !important;
+        }
+    }
+    
+    #SignIn{
+        a{
+            display: flex !important;
         }
     }
 
